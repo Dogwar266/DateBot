@@ -1,0 +1,24 @@
+{
+  "name": "rolereactionbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/roleBot.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "discord.js": "^11.5.1",
+    "fast-csv": "^4.0.2",
+    "googleapis": "^39.2.0",
+    "gw2-api": "^2.1.0",
+    "request": "^2.88.2",
+    "sequelize": "^5.21.5",
+    "sqlite3": "^4.1.1"
+  },
+  "devDependencies": {
+    "discord.js-commando": "^0.10.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Edward Boreham",
+  "license": "ISC"
+}
