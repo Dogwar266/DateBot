@@ -11,9 +11,6 @@ const client = new Discord.Client({
     partials: ['MESSAGE']
 });
 const {prefix} = require('./config.json');
-const token = process.env.token;
-const cheerio = require('cheerio');
-const request = require('request');
 client.commands = new Discord.Collection();
 const fs = require('fs');
 
@@ -24,7 +21,7 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 const cooldowns = new Discord.Collection();
-client.login(token);
+client.login('NjgxNDY4NzY4NDg4MzkwNjY4.XlPAkg.EjA5sIEN1MXog5GwfHoOTkaQQO0');
 /*
     GW2 Includes
 
