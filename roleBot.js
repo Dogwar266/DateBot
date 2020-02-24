@@ -13,7 +13,7 @@ const client = new Discord.Client({
 const {prefix} = require('./config.json');
 client.commands = new Discord.Collection();
 const fs = require('fs');
-
+const token = process.env.token;
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
@@ -21,7 +21,7 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 const cooldowns = new Discord.Collection();
-client.login('NjgxNDY4NzY4NDg4MzkwNjY4.XlPAkg.EjA5sIEN1MXog5GwfHoOTkaQQO0');
+client.login(token);
 /*
     GW2 Includes
 
