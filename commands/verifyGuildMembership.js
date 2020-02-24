@@ -30,7 +30,7 @@ module.exports = {
                 for (let i = 0; i <memberArray.length; i++) {
                     console.log(memberArray);
                     if (ingameName === memberArray[i].name){
-                        
+
                         if (nameMap.has(`${message.member}`)){
                             let embed = new Discord.RichEmbed()
                                 .setColor('#da36cc')
@@ -43,7 +43,7 @@ module.exports = {
                             let embed = new Discord.RichEmbed()
                                 .setColor('#da36cc')
                                 .setTitle('Successfully Verified!')
-                                .setDescription('You have been successfully verified, and should have the Guild Members Role!')
+                                .setDescription('You have been successfully verified, and should have the Verified Role!')
                                 .addField('Key Pair', `${message.member}, ${ingameName}`);
                             message.channel.send(embed);
 
