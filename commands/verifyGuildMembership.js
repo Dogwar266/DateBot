@@ -30,7 +30,7 @@ module.exports = {
                 for (let i = 0; i <memberArray.length; i++) {
                     console.log(memberArray);
                     if (ingameName === memberArray[i].name){
-                        console.log(memberArray.name);
+                        
                         if (nameMap.has(`${message.member}`)){
                             let embed = new Discord.RichEmbed()
                                 .setColor('#da36cc')
