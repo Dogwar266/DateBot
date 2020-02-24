@@ -12,7 +12,7 @@ const client = new Discord.Client({
 });
 const {prefix} = require('./config.json');
 const config = require('./config');
-const token = config.token;
+const token = process.env.token;
 const cheerio = require('cheerio');
 const request = require('request');
 client.commands = new Discord.Collection();
