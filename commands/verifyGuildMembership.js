@@ -19,7 +19,7 @@ module.exports = {
         const ingameName = splitInputString.replace(/,/g, " ");
 
         // const discordName = args[1];
-        let role = message.guild.roles.find(role => role.name === 'Guild Members');
+        let role = message.guild.roles.find(role => role.name === 'Verified');
         //let member = message.guild.members.find(message.author.id).username;
         console.log(ingameName);
 
@@ -31,7 +31,7 @@ module.exports = {
                     if (ingameName === memberArray[i].name){
                         if (nameMap.has(`${message.member}`)){
                             let embed = new Discord.RichEmbed()
-                                .setColor('#15aedb')
+                                .setColor('#da36cc')
                                 .setTitle('Oops!')
                                 .setDescription('Looks like someone already verified that name!');
                             message.channel.send(embed);
@@ -39,7 +39,7 @@ module.exports = {
                             message.member.addRole(role);
                             nameMap.set(`${message.member}`, `${ingameName}`);
                             let embed = new Discord.RichEmbed()
-                                .setColor('#15aedb')
+                                .setColor('#da36cc')
                                 .setTitle('Successfully Verified!')
                                 .setDescription('You have been successfully verified, and should have the Guild Members Role!')
                                 .addField('Key Pair', `${message.member}, ${ingameName}`);
@@ -50,7 +50,7 @@ module.exports = {
                     } else if (ingameName != memberArray[i].name && i === memberArray.length - 1) {
                             console.log('I got here!');
                             let embed = new Discord.RichEmbed()
-                                .setColor('#15aedb')
+                                .setColor('#da36cc')
                                 .setTitle('Something went wrong!')
                                 .setDescription('It looks like you\'re either not in the guild or you\'ve mistyped the command!\n ' +
                                     'Try retyping the command, an example of how it\s supposed to look can be found in the image below!\n If the command still doesn\'t work' +

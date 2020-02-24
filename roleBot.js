@@ -98,27 +98,6 @@ client.on("ready", (reaction, user) => {
             cooldowns.set(command.name, new Discord.Collection());
         }
 
-        /*const now = Date.now();
-        const timestamps = cooldowns.get(commandName);
-        const cooldownAmount = (command.cooldown || 3) * 1000;
-
-        if (timestamps.has(message.author.id)) {
-            const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
-
-            if (now < expirationTime) {
-                const timeLeft = (expirationTime - now) / 1000;
-                return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
-
-
-            }
-        }
-
-
-
-        timestamps.set(message.author.id, now);
-        setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
-
-         */
 
         try {
             command.execute(message, args);
@@ -142,67 +121,5 @@ client.on("ready", (reaction, user) => {
         }
     });
 
-    client.on('messageReactionAdd', async (reaction, user) => {
-
-
-        let applyRole = async () => {
-            let emojiName = reaction.emoji.name;
-            console.log(reaction.emoji.name.toString());
-            let role = reaction.message.guild.roles.find(role => role.name.toLowerCase() === emojiName.toString().toLowerCase());
-            let member = reaction.message.guild.members.find(member => member.id === user.id);
-            try {
-                console.log("Role and member found.");
-                console.log(role);
-                await member.addRole(role);
-                console.log("Done.");
-            } catch (err) {
-                console.log(err);
-            }
-        }
-        if (!reaction.message.partial) {
-
-            try {
-                    console.log("Cached")
-                    applyRole();
-
-            } catch (err) {
-                console.log(err);
-            }
-        } else {
-            console.log("Not a partial.");
-            console.log(true);
-            applyRole();
-
-        }
-    });
-
-    client.on('messageReactionRemove', async (reaction, user) => {
-        let removeRole = async () => {
-            let emojiName = reaction.emoji.name;
-            let role = reaction.message.guild.roles.find(role => role.name.toLowerCase() === emojiName.toLowerCase());
-            let member = reaction.message.guild.members.find(member => member.id === user.id);
-            try {
-                console.log("Role and member found.");
-                await member.removeRole(role);
-                console.log("Done.");
-
-            } catch (err) {
-                console.log(err);
-            }
-        }
-        if (!reaction.message.partial) {
-            try {
-                    console.log("Cached")
-                    removeRole();
-            } catch (err) {
-                console.log(err);
-            }
-        } else {
-            console.log("Not a partial.");
-            console.log(true);
-            removeRole();
-
-        }
-    })
 });
 
